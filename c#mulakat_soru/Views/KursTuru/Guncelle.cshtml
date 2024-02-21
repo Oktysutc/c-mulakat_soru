@@ -1,0 +1,21 @@
+﻿@model KursTuru
+<form method="post">
+    <div class="border p-3 mt-5">
+
+        <div class="row pb-3">
+            <h2 class="text-primary">kurs türü güncelle</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ad" class="p-0"></label>
+            <input asp-for="Ad" class="form-control" />
+            <span asp-validation-for="Ad" class="text-danger"></span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" style="width:250px">Kurs Türü güncelle</button>
+            <a asp-controller="KursTuru" asp-action="Index" class="btn btn-primary" style="width:250px">Kurs türlerine geri dön</a>
+        </div>
+
+    </div>
+</form>
+

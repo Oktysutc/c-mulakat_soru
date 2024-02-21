@@ -1,0 +1,38 @@
+﻿    @model List<KursTuru>
+@if (TempData["basarili"] != null)
+{
+    <h4 style="color:red">@TempData["basarili"]</h4>
+}
+<div class="container">
+        <div class="pt-3 pb-4">
+        <div>
+            <h1>Kurs Türleri</h1>
+        </div>
+    </div>           <!--tablo yapımı oluşturdum-->
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>kurs türü</th>
+            <th></th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var KursTuru in Model) 
+            {
+            <tr>
+                <td>@KursTuru.Id</td>
+                <td>@KursTuru.Ad</td>
+<td>  <a asp-controller="KursTuru" asp-action="Guncelle" asp-route-id="@KursTuru.Id" type="button" class="btn btn-success" style=" width:150px">güncelle</a></td>
+<td>  <a asp-controller="KursTuru" asp-action="Sil" asp-route-id="@KursTuru.Id" type="button" class="btn btn-danger" style="width:150px">sil</a>  </td>
+            </tr>
+            }
+        </tbody>
+        </table>
+        <div class="row pt-3 pb-2">
+            <div>
+                <a asp-controller="KursTuru" asp-action="Ekle" class="btn btn-primary" type="button">yeni kurs oluştur</a>
+            </div>
+        </div>
+    </div>
