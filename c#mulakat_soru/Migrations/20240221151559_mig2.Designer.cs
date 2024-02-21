@@ -11,8 +11,8 @@ using c_mulakat_soru.Utility;
 namespace c_mulakat_soru.Migrations
 {
     [DbContext(typeof(UygulamaDbContext))]
-    [Migration("20240216170514_KursTurleriTablosuEkle")]
-    partial class KursTurleriTablosuEkle
+    [Migration("20240221151559_mig2")]
+    partial class mig2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,34 @@ namespace c_mulakat_soru.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("c_mulakat_soru.Models.Kurs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Fiyat")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Konu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KursAdi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Yayinlayan")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kurslar");
+                });
+
             modelBuilder.Entity("c_mulakat_soru.Models.KursTuru", b =>
                 {
                     b.Property<int>("Id")
@@ -34,7 +62,8 @@ namespace c_mulakat_soru.Migrations
 
                     b.Property<string>("Ad")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 

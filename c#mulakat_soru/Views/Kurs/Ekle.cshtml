@@ -1,0 +1,46 @@
+﻿@model Kurs
+<form method="post">
+    <div class="border p-3 mt-5">
+
+        <div class="row pb-3">
+            <h2 class="text-primary">kurs ekle</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="KursAdi" class="p-0"></label>
+            <input asp-for="KursAdi" class="form-control" />
+            <span asp-validation-for="KursAdi" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Konu" class="p-0"></label>
+            <input asp-for="Konu" class="form-control" />
+            <span asp-validation-for="Konu" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Yayinlayan" class="p-0"></label>
+            <input asp-for="Yayinlayan" class="form-control" />
+            <span asp-validation-for="Yayinlayan" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Fiyat" class="p-0"></label>
+            <input asp-for="Fiyat" class="form-control" />
+            <span asp-validation-for="Fiyat" class="text-danger"></span>
+        </div>
+        <div> 
+            <button type="submit" class="btn btn-primary" style="width:250px"> yeni Kurs Ekle</button>
+            <a asp-controller="Kurs" asp-action="Index" class="btn btn-primary" style="width:250px">Kurslarıma geri dön</a>
+        </div>
+       
+    </div>
+</form>
+
+<!--
+@section Scripts{
+    @{
+       <!- <partial name="ValidationScriptsPartial"/>
+    }
+}
+-->

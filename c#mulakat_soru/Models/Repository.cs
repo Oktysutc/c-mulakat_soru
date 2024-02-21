@@ -37,7 +37,6 @@ namespace c_mulakat_soru.Models
         {
             dbSet.Remove(entity);
         }
-
         public void SilAralık(IEnumerable<T> entities)
         {
             dbSet.RemoveRange(entities);

@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<UygulamaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // _KursTururepo nesnesinin oluþmasýný saðladým
 builder.Services.AddScoped<IKursTuruRepository, KursTuruRepository>();
+builder.Services.AddScoped<IKursRepository,KursRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

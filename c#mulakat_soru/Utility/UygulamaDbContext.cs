@@ -8,5 +8,6 @@ namespace c_mulakat_soru.Utility
         public UygulamaDbContext(DbContextOptions<UygulamaDbContext> options) : base(options) { }
 
         public DbSet<KursTuru> KursTurleri { get; set; }
+        public DbSet<Kurs>Kurslar { get; set; }
     }
 }

@@ -1,20 +1,19 @@
 ﻿using System.Linq.Expressions;
 using c_mulakat_soru.Utility;
 
-
 namespace c_mulakat_soru.Models
 {
-    public class KursTuruRepository : Repository<KursTuru>, IKursTuruRepository
+    public class KursRepository : Repository<Kurs>, IKursRepository
     {
         private  UygulamaDbContext _uygulamaDbContext;
-        public KursTuruRepository(UygulamaDbContext uygulamaDbContext) : base(uygulamaDbContext)
+        public KursRepository(UygulamaDbContext uygulamaDbContext) : base(uygulamaDbContext)
         {
             _uygulamaDbContext = uygulamaDbContext;
         }
 
-        public void Guncelle(KursTuru kursTuru)
+        public void Guncelle(Kurs kurs)
         {
-            _uygulamaDbContext.Update(kursTuru);
+            _uygulamaDbContext.Update(kurs);
         }
 
         public void Kaydet()
