@@ -11,6 +11,9 @@ builder.Services.AddDbContext<UygulamaDbContext>(options => options.UseSqlServer
 // _KursTururepo nesnesinin oluþmasýný saðladým
 builder.Services.AddScoped<IKursTuruRepository, KursTuruRepository>();
 builder.Services.AddScoped<IKursRepository,KursRepository>();
+builder.Services.AddScoped<ISatinalRepository, SatinalRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

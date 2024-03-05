@@ -1,0 +1,83 @@
+﻿    @model Kurs
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="ResimUrl" hidden />
+        <div class="row">
+            <div class="col-8">
+                <div class="border p-3 mt-5">
+
+                    <div class="row pb-3">
+                        <h2 class="text-primary">@(Model == null ? "kurs ekle" : "kurs güncelle")Kurs</h2>
+                        <hr />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="KursAdi" class="p-0"></label>
+                        <input asp-for="KursAdi" class="form-control" />
+                        <span asp-validation-for="KursAdi" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Konu" class="p-0"></label>
+                        <input asp-for="Konu" class="form-control" />
+                        <span asp-validation-for="Konu" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Yayinlayan" class="p-0"></label>
+                        <input asp-for="Yayinlayan" class="form-control" />
+                        <span asp-validation-for="Yayinlayan" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="KursTuruId" class="p-0"></label>
+                        <select asp-for="KursTuruId" asp-items="ViewBag.KursTuruList" class="form-select"></select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Fiyat" class="p-0"></label>
+                        <input asp-for="Fiyat" class="form-control" />
+                        <span asp-validation-for="Fiyat" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ResimUrl" class="p-0"></label>
+                        <input type="file" name="file" class="form-control"
+                    </div>
+                    <div>
+
+                        @if (Model != null)
+                        {
+                            <button type="submit" class="btn btn-primary" style="width:250px">Güncelle</button>
+
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary" style="width:250px"> yeni Kurs Ekle</button>
+
+                        }
+
+                        <a asp-controller="Kurs" asp-action="Index" class="btn btn-primary" style="width:250px">Kurslarıma geri dön</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+            
+                <div class="col-">
+                    @if(Model!=null){
+                       <img src="@Model.ResimUrl"  width="300px" height="350px"  style="border-radius:7px;  border:1px  solid #bbb9b9"/>}
+                </div>
+
+       
+
+   
+    </form>
+
+    <!--
+    @section Scripts{
+        @{
+           <!- <partial name="ValidationScriptsPartial"/>
+        }
+    }
+    -->

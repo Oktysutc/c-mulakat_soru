@@ -1,0 +1,59 @@
+﻿    @model Satinal
+    <form method="post" enctype="multipart/form-data">
+       
+        <div class="row">
+            <div class="col-10">
+                <div class="border p-3 mt-5">
+
+                    <div class="row pb-3">
+                        <h2 class="text-primary">@(Model == null ? "alısveris yap" : "Satinal güncelle")Kurs</h2>
+                        <hr />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="OgrenciId" class="p-0"></label>
+                        <input asp-for="OgrenciId" class="form-control" />
+                        <span asp-validation-for="OgrenciId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="KursId" class="p-0"></label>
+                        <select asp-for="KursId" asp-items="ViewBag.KursList" class="form-select">
+                        </select>
+                    </div>
+
+                    
+         
+                        @if (Model != null)
+                        {
+                            <button type="submit" class="btn btn-primary" style="width:250px">Güncelle</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary" style="width:250px"> yeni alısveris Ekle</button>
+                        }
+
+                        <a asp-controller="Satinal" asp-action="Index" class="btn btn-primary" style="width:250px">satın almaya geri dön</a>
+                    </div>
+
+                </div>
+                <div class="col-2">
+            @if (Model != null && Model.Kurs != null)
+            {
+                <img src="@Model.Kurs.ResimUrl" width="300px" height="350px" style="border-radius:7px;  border:1px  solid #bbb9b9" />
+            }
+
+                </div>
+            </div>
+
+        
+
+   
+    </form>
+
+    <!--
+    @section Scripts{
+        @{
+           <!- <partial name="ValidationScriptsPartial"/>
+        }
+    }
+    -->
